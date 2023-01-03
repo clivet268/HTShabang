@@ -94,11 +94,14 @@ def get_current(url):
 def get_video(url):
     video = YouTube(url)
     video_streams = video.streams.filter(file_extension = 'mp4').get_by_itag(22)
-    video_streams.download(filename = video.streams[0].title + "mp4", output_path = PATH)
-
+    video_streams.download(filename = video.streams[0].title + ".mp4", output_path = PATH)
+    print(video.streams[0].title + " Sucesfully Downloaded")
+     
 def get_audio(url):
     video = YouTube(url)
     audio_stream = video.streams.filter(only_audio=True).first()
-    video_streams.download(filename = video.streams[0].title, output_path = PATH)
-
+    video_streams.download(filename = video.streams[0].title + ".mp3", output_path = PATH)
+    print(video.streams[0].title + " Sucesfully Downloaded")
+    
 init()
+
